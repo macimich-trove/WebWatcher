@@ -1,0 +1,2 @@
+# WebWatcher
+This is a DOM NODE traversal tool that displays all elements as a graph and scrapes specific elements as specified by the user  while implementing Rudimentry NLP TOKENIZER functionality and Pattern matching for elements and RAW text
