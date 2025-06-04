@@ -96,11 +96,7 @@ app.get('/stats', (req, res) => {
   const PageHtml = RequestMethodsLog.map((Request) => `<li><b>${Request}</b></li>`).join(' ');
 
 
-(() => {
-   res.send(`<h1><b>#STATS ROUTE#</b></h1>`);
-
-})();
-
+  res.write(`<h1><b>#STATS ROUTE#</b></h1>`);
   res.write(PageHtml);
   res.end();
 });
