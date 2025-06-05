@@ -7,13 +7,15 @@ const Stream = require('stream');
 
 const port = process.env.PORT || 4002;
 
-//const {} = require('./middleware/logger-middleware.js');
+const {Logger, getRequestLogs} = require('./middleware/logger-middleware.js');
+
+
 var corsOptions = [{origin: 'localhost:3000', methods: ['GET', 'POST', 'PUT', 'DELETE']},{}]
 app.use(cors(...corsOptions));
 console.log(...corsOptions)
 
 
-const RequestMethodsLog = [];
+/*const RequestMethodsLog = [];
 const StreamObject = new Stream.Writable({
   write: function (chunk, encoding, callback) {
     try {
@@ -30,6 +32,8 @@ const StreamObject = new Stream.Writable({
   }
 });
 
+
+*/
 
 
 const DevFormat = function (tokens, req, res) {
@@ -50,14 +54,16 @@ const DevFormat = function (tokens, req, res) {
 
 
 
-app.use(morganlogs(DevFormat, {stream: StreamObject}));
+//app.use(RequestMethodsLog);
 
+app.use(Logger); // Use the logger middleware globally
 
 
 
 app.get('/stats', (req, res) => {
 console.log("#STATS ROUTE#");
-const PageHtml = RequestMethodsLog.map((Request) => `<li><b>${Request}</b></li>`).join(' ');
+  const logs = getRequestLogs();
+const PageHtml = logs.map((Request) => `<li><b>${Request}</b></li>`).join(' ');
   res.write(`<h1><b>#STATS ROUTE#</b></h1>`);
   res.write(PageHtml);
   // End the response to avoid hanging
@@ -87,5 +93,5 @@ if (process.env.NODE_ENV !== 'test') {
 
 }
 
-module.exports = {router, port}
+module.exports = {app ,DevFormat, router, port}
 
