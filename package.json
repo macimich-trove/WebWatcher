@@ -1,0 +1,40 @@
+{
+  "name": "WebWatcher",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "jest index.test.js",
+    "start:frontend": "cd frontend && npm run dev",
+    "start:backend": "node index.js",
+    "start": "concurrently -n \"FRONTEND,BACKEND\" -c \"red, blue\" -p \"[{name}]\" \"npm run start:frontend\" \"npm run start:backend\""
+  },
+  "dependencies": {
+    "axios": "^1.8.4",
+    "babel": "^5.8.38",
+    "cheerio": "^1.0.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "docker": "^1.0.0",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "jest": "^29.7.0",
+    "morgan": "^1.10.0",
+    "node-cron": "^3.0.3",
+    "nodemon": "^3.1.9",
+    "pm2": "^6.0.5",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-scripts": "^5.0.1",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7",
+    "supertest": "^7.1.1",
+    "vite": "^7.0.3",
+    "zombie": "^6.1.4"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "eslint-plugin-react": "^7.37.5"
+  }
+}

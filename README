@@ -1,0 +1,39 @@
+
+##Webwatcher##
+This is a DOM NODE traversal tool that displays all elements as a graph 
+and scrapes specific elements as specified by the user  
+
+
+Tracks and Diffs DOM's traverses via CRON
+
+
+
+
+
+#File Glossary# 
+docker      
+
+index.js
+
+middleware
+
+package-lock.json  
+
+Screenshots
+
+Dockerfile  
+
+jest.config.js  
+
+node_modules  
+
+README             
+
+tests
+
+frontend    
+
+logs            
+package.json  
+routes             
+vite.config.js
